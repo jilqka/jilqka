@@ -1,22 +1,51 @@
-public class Circle {
+public class Circle extends GeometricObject {
     private double radius;
-    public Circle(){
-        radius=1;
-    }
-    public Circle(double newRadius){
-        radius=newRadius;
-    }
-    public double getArea(){
-        return Math.PI*radius*radius;
-    }
-    public double getPerimeter(){
-        return Math.PI*radius*2;
-    }
-    public void setRadius(double newRadius){
-        this.radius=newRadius;
-    }
-    public double getRadius(){
-       return radius;
+
+    public Circle() {
     }
 
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        this.radius = radius;
+        setColor(color);
+        setFilled(filled);
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    /** Set a new radius */
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    /** Return area */
+    public double getArea() {
+        return radius * radius * Math.PI;
+    }
+
+    /** Return diameter */
+    public double getDiameter() {
+        return 2 * radius;
+    }
+    //
+//	/** Return perimeter */
+    public double getPerimeter() {
+        return 2 * radius * Math.PI;
+    }
+
+
+    public void printCircle() {
+        System.out.println("The radius is" + getRadius());
+    }
+
+    //	// Override the toString method defined in the superclass
+    public String toString() {
+        return "Circle with area: "+this.getArea();
+    }
 }
+
